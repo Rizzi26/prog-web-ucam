@@ -40,28 +40,28 @@ The project is divided into two main developmental phases:
 ## Tasks from Phase 1:
 
 ### 1. Structure & Layout (HTML5/CSS3)
-- [ ] **Semantic HTML5:** Implement a structure using semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
-- [ ] **Navigation Menu:** Create a functional menu for site navigation[cite: 44].
-- [ ] **Search Bar:** Add a search input field for the t-shirt catalog[cite: 45].
-- [ ] **Event Calendar:** Develop a calendar component to display store events or promotions[cite: 46].
-- [ ] **Browser Compatibility:** Ensure the website works correctly across different modern browsers[cite: 51].
+- [x] **Semantic HTML5:** Implement a structure using semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
+- [x] **Navigation Menu:** Create a functional menu for site navigation.
+- [x] **Search Bar:** Add a search input field for the t-shirt catalog.
+- [ ] **Event Calendar:** Develop a calendar component to display store events or promotions.
+- [ ] **Browser Compatibility:** Ensure the website works correctly across different modern browsers.
 
 ### 2. Design & Branding
-- [ ] **Canvas Logo:** Develop the company logo using the HTML5 Canvas API (no static images)[cite: 43].
-- [ ] **CSS Styling:** - [ ] Create at least one main stylesheet[cite: 52].
-- [ ] Include a RESET stylesheet to normalize browser defaults[cite: 52].
-- [ ] **Responsive Design:** Ensure the interface is accessible, ergonomic, and usable on various devices[cite: 20, 51].
+- [x] **Canvas Logo:** Develop the company logo using the HTML5 Canvas API (no static images).
+- [x] **CSS Styling:** - [x] Create at least one main stylesheet.
+  - [x] Include a RESET stylesheet to normalize browser defaults.
+- [ ] **Responsive Design:** Ensure the interface is accessible, ergonomic, and usable on various devices.
 
 ### 3. HTML5 APIs (Mandatory)
-*Must include at least one of the following[cite: 48, 49]:*
-- [ ] **Web Storage:** Implement a persistent shopping cart or user preferences.
-- [ ] **Geolocation:** Add a feature to locate the nearest pickup point.
+*Must include at least one of the following:*
+- [ ] **Web Storage:** Implement a persistent shopping cart or user preferences. *(Next Step)*
+- [x] **Geolocation:** Add a feature to locate the nearest pickup point.
 - [ ] **Drag & Drop:** Allow users to interact with products by dragging them.
 
 ### 4. Academic Documentation (La Memoria)
 - [ ] **Mandatory Cover Page:** Include subject name, academic year (2025/2026), and group details.
-- [ ] **Index:** Add a table of contents on the third page[cite: 74].
-- [ ] **Format:** Ensure the final report is exported as a PDF[cite: 75].
+- [ ] **Index:** Add a table of contents on the third page.
+- [ ] **Format:** Ensure the final report is exported as a PDF.
 
 ---
 
