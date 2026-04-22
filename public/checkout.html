@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | T-Shirt Store</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+
+    <header class="header">
+        <div class="header__logo-container">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <h1 class="header__title">⬅ T-Shirt Store | Checkout</h1>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content" style="max-width: 800px;">
+        <section class="section">
+            <h2 class="section__title">Finalizar Pedido</h2>
+            
+            <div id="checkoutSummary" style="margin-bottom: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
+                </div>
+
+            <form id="checkoutForm">
+                <h3 style="margin-bottom: 1rem;">📍 Endereço de Entrega</h3>
+                <div style="margin-bottom: 2rem;">
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">Podemos usar sua localização para definir o ponto de entrega ideal.</p>
+                    <button type="button" id="btnGetAddress" class="product-card__button" style="background-color: var(--primary-color);">📍 Usar Minha Localização Atual</button>
+                    <div id="addressResult" style="margin-top: 10px; font-weight: bold; color: #27ae60;"></div>
+                    
+                    <input type="text" id="manualAddress" placeholder="Ou digite seu endereço manualmente..." style="width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </div>
+
+                <h3 style="margin-bottom: 1rem;">💳 Método de Pagamento</h3>
+                <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment" value="apple_pay" required>
+                        🍎 Apple Pay
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment" value="cartao">
+                        💳 Cartão de Crédito
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="payment" value="boleto">
+                        📄 Boleto Bancário
+                    </label>
+                </div>
+
+                <button type="submit" class="cart-modal__checkout" style="font-size: 1.2rem;">Confirmar Pedido</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>

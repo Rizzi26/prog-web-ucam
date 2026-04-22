@@ -20,9 +20,15 @@
             <button class="search__button">Buscar</button>
         </div>
 
-        <div class="header__cart">
-            <span class="cart__icon">🛒</span>
-            <span class="cart__count" id="cartCount">0</span> itens
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="header__cart" id="cartBtn" style="cursor: pointer;">
+                <span class="cart__icon">🛒</span>
+                <span class="cart__count" id="cartCount">0</span> itens
+            </div>
+            
+            <button id="quickCheckoutBtn" class="product-card__button" style="display: none; margin-top: 0; padding: 0.5rem 1rem; background-color: #27ae60;">
+                Finalizar
+            </button>
         </div>
     </header>
 
@@ -40,10 +46,31 @@
             <h2 class="section__title">Nossas Camisetas</h2>
             <div class="catalog__grid">
                 <article class="product-card">
-                    <div class="product-card__image-placeholder">Camiseta Básica Preta</div>
+                    <img src="assets/camisa_preta.jpg" alt="Camiseta Básica Preta" class="product-card__img">
                     <h3 class="product-card__title">Básica Preta</h3>
-                    <p class="product-card__price">€ 19,90</p>
+                    <p class="product-card__price">€ 15,90</p>
                     <button class="product-card__button" onclick="addToCart('Básica Preta', 19.90)">Adicionar ao Carrinho</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="assets/camisa_azul.jpg" alt="Camiseta Básica Azul" class="product-card__img">
+                    <h3 class="product-card__title">Básica Azul</h3>
+                    <p class="product-card__price">€ 19,90</p>
+                    <button class="product-card__button" onclick="addToCart('Básica Azul', 19.90)">Adicionar ao Carrinho</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="assets/camisa_rosa.jpg" alt="Camiseta Básica Rosa" class="product-card__img">
+                    <h3 class="product-card__title">Básica Rosa</h3>
+                    <p class="product-card__price">€ 12,90</p>
+                    <button class="product-card__button" onclick="addToCart('Básica Rosa', 19.90)">Adicionar ao Carrinho</button>
+                </article>
+
+                <article class="product-card">
+                    <img src="assets/camisa_cinza.jpg" alt="Camiseta Básica cinza" class="product-card__img">
+                    <h3 class="product-card__title">Básica cinza</h3>
+                    <p class="product-card__price">€ 29,90</p>
+                    <button class="product-card__button" onclick="addToCart('Básica cinza', 19.90)">Adicionar ao Carrinho</button>
                 </article>
             </div>
         </section>
@@ -62,6 +89,17 @@
             <div id="locationResult" class="location__result"></div>
         </section>
 
+        <div id="cartModal" class="cart-modal" style="display: none;">
+            <div class="cart-modal__content">
+                <span class="cart-modal__close" id="closeCartBtn">&times;</span>
+                <h2>Seu Carrinho</h2>
+                <ul id="cartItemsList"></ul>
+                <div class="cart-modal__footer">
+                    <p><strong>Total: <span id="cartTotal">€ 0,00</span></strong></p>
+                    <button class="cart-modal__checkout">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">

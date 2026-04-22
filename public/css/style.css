@@ -11,7 +11,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Cabeçalho */
 .header {
     background-color: var(--white);
     padding: 1rem 2rem;
@@ -32,7 +31,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Navegação */
 .nav {
     background-color: var(--primary-color);
     padding: 0.5rem;
@@ -73,7 +71,6 @@ body {
     padding-left: 10px;
 }
 
-/* Grid de Produtos */
 .catalog__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -100,6 +97,15 @@ body {
     margin-bottom: 1rem;
 }
 
+.product-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; 
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: var(--white); 
+}
+
 .product-card__button {
     background-color: var(--accent-color);
     color: white;
@@ -109,10 +115,216 @@ body {
     margin-top: 10px;
 }
 
-/* Rodapé */
 .footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
     color: #666;
+}
+
+/* -----------------------------------
+   Estilos do Modal do Carrinho
+------------------------------------ */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-modal__content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cart-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+#cartItemsList {
+    margin: 1.5rem 0;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#cartItemsList li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 0.8rem 0;
+    font-size: 0.95rem;
+}
+
+.cart-modal__footer {
+    border-top: 2px solid var(--bg-light);
+    padding-top: 1rem;
+    text-align: right;
+}
+
+.cart-modal__checkout {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.cart-modal__checkout:hover {
+    background-color: #d67118;
+}
+
+/* -----------------------------------
+   Estilos do Calendário de Eventos
+------------------------------------ */
+.calendar-container {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-header button {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.calendar-header button:hover {
+    background: var(--accent-color);
+}
+
+.calendar-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-day-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.calendar-day {
+    padding: 10px 5px;
+    background: var(--bg-light);
+    border-radius: 4px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+.calendar-day.has-event {
+    background: #fff3e0; 
+    border-color: var(--accent-color);
+}
+
+.calendar-day span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.event-badge {
+    background: var(--accent-color);
+    color: var(--white);
+    font-size: 0.7rem;
+    padding: 4px;
+    border-radius: 4px;
+    line-height: 1.2;
+    width: 95%;
+    word-wrap: break-word;
+}
+
+/* -----------------------------------
+   Estilos da Barra de Pesquisa
+------------------------------------ */
+.header__search {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 2rem; 
+}
+
+.search__input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    border: 2px solid #ddd;
+    border-right: none; 
+    border-radius: 4px 0 0 4px; 
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search__input:focus {
+    border-color: var(--accent-color);
+}
+
+.search__button {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0 4px 4px 0; 
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.search__button:hover {
+    background-color: #d67118; 
+    border-color: #d67118;
 }
