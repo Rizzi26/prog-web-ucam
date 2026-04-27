@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,47 +10,50 @@
 <body class="page">
 
     <header class="header">
-        <div class="header__logo-container">
+        <nav class="header__logo-container" aria-label="Breadcrumb">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
                 <h1 class="header__title">⬅ T-Shirt Store | Checkout</h1>
             </a>
-        </div>
+        </nav>
     </header>
 
     <main class="main-content" style="max-width: 800px;">
         <section class="section">
-            <h2 class="section__title">Finalizar Pedido</h2>
+            <h2 class="section__title">Complete Order</h2>
             
-            <div id="checkoutSummary" style="margin-bottom: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
-                </div>
+            <section id="checkoutSummary" style="margin-bottom: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
+            </section>
 
             <form id="checkoutForm">
-                <h3 style="margin-bottom: 1rem;">📍 Endereço de Entrega</h3>
-                <div style="margin-bottom: 2rem;">
-                    <p style="font-size: 0.9rem; margin-bottom: 10px;">Podemos usar sua localização para definir o ponto de entrega ideal.</p>
-                    <button type="button" id="btnGetAddress" class="product-card__button" style="background-color: var(--primary-color);">📍 Usar Minha Localização Atual</button>
-                    <div id="addressResult" style="margin-top: 10px; font-weight: bold; color: #27ae60;"></div>
+                <fieldset style="margin-bottom: 2rem; border: none; padding: 0;">
+                    <legend style="margin-bottom: 1rem; font-size: 1.17em; font-weight: bold;">📍 Delivery Address</legend>
                     
-                    <input type="text" id="manualAddress" placeholder="Ou digite seu endereço manualmente..." style="width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
-                </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 10px;">We can use your location to define the ideal delivery point.</p>
+                    <button type="button" id="btnGetAddress" class="product-card__button" style="background-color: var(--primary-color);">📍 Use My Current Location</button>
+                    
+                    <output id="addressResult" style="display: block; margin-top: 10px; font-weight: bold; color: #27ae60;"></output>
+                    
+                    <input type="text" id="manualAddress" placeholder="Or enter your address manually..." style="width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                </fieldset>
 
-                <h3 style="margin-bottom: 1rem;">💳 Método de Pagamento</h3>
-                <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 10px;">
+                <fieldset style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 10px; border: none; padding: 0;">
+                    <legend style="margin-bottom: 1rem; font-size: 1.17em; font-weight: bold;">💳 Payment Method</legend>
+                    
                     <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                         <input type="radio" name="payment" value="apple_pay" required>
                         🍎 Apple Pay
                     </label>
                     <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                         <input type="radio" name="payment" value="cartao">
-                        💳 Cartão de Crédito
+                        💳 Credit Card
                     </label>
                     <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                         <input type="radio" name="payment" value="boleto">
-                        📄 Boleto Bancário
+                        📄 Bank Slip
                     </label>
-                </div>
+                </fieldset>
 
-                <button type="submit" class="cart-modal__checkout" style="font-size: 1.2rem;">Confirmar Pedido</button>
+                <button type="submit" class="cart-modal__checkout" style="font-size: 1.2rem;">Confirm Order</button>
             </form>
         </section>
     </main>

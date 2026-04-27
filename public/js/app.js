@@ -8,18 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     initCalendar();
     initSearch();
     
-    // 1. Eventos de abrir e fechar o Modal
+    // 1. Events to open and close the Modal
     document.getElementById('cartBtn').addEventListener('click', openCartModal);
     document.getElementById('closeCartBtn').addEventListener('click', closeCartModal);
 
-    // 2. Botão "Finalizar" verde do cabeçalho (abre o modal)
+    // 2. Green "Checkout" button in the header (opens the modal)
     const quickCheckoutBtn = document.getElementById('quickCheckoutBtn');
     if (quickCheckoutBtn) {
         quickCheckoutBtn.addEventListener('click', openCartModal); 
     }
 
-    // 3. Botão "Finalizar Compra" laranja DENTRO do modal (redireciona para o checkout)
-    const modalCheckoutBtn = document.querySelector('.cart-modal__checkout'); // ✅ Ponto da classe adicionado
+    // 3. Orange "Checkout" button INSIDE the modal (redirects to checkout)
+    const modalCheckoutBtn = document.querySelector('.cart-modal__checkout'); // ✅ Added dot for class selector
     if (modalCheckoutBtn) {
         modalCheckoutBtn.addEventListener('click', () => {
             window.location.href = 'checkout.html';
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * 1. Função para desenhar o logo da T-Shirt Store (um cabide)
+ * 1. Function to draw the T-Shirt Store logo (a hanger)
  */
 function drawCanvasLogo() {
     const canvas = document.getElementById('logoCanvas');
@@ -59,7 +59,7 @@ function drawCanvasLogo() {
 }
 
 /**
- * 2. Função para implementar a API HTML5 de Geolocalização
+ * 2. Function to implement the HTML5 Geolocation API
  */
 function initGeolocation() {
    const btnLocation = document.getElementById('btnLocation');
@@ -69,7 +69,7 @@ function initGeolocation() {
 
    btnLocation.addEventListener('click', () => {
        if ("geolocation" in navigator) {
-           locationResult.innerHTML = "<p>Buscando sua localização...</p>";
+           locationResult.innerHTML = "<p>Fetching your location...</p>";
            
            navigator.geolocation.getCurrentPosition(
                (position) => {
@@ -77,56 +77,54 @@ function initGeolocation() {
                    const lon = position.coords.longitude;
 
                    const stores = [
-                       { name: "Loja UCAM (Guadalupe)", lat: 37.9922, lon: -1.1842 },
-                       { name: "Loja Centro (Gran Vía)", lat: 37.9838, lon: -1.1306 }
+                       { name: "UCAM Store (Guadalupe)", lat: 37.9922, lon: -1.1842 },
+                       { name: "Downtown Store (Gran Vía)", lat: 37.9838, lon: -1.1306 }
                    ];
 
                    locationResult.innerHTML = `
-                       <p style="color: #27ae60; font-weight: bold;">✅ Localização encontrada!</p>
-                       <p>Sua posição: Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}</p>
+                       <p style="color: #27ae60; font-weight: bold;">✅ Location found!</p>
+                       <p>Your position: Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}</p>
                        <br>
-                       <p>🏪 <strong>Ponto de retirada sugerido:</strong> ${stores[0].name}</p>
+                       <p>🏪 <strong>Suggested pickup point:</strong> ${stores[0].name}</p>
                    `;
                },
                (error) => {
                    let errorMessage = "";
                    switch(error.code) {
                        case error.PERMISSION_DENIED:
-                           errorMessage = "Você negou o pedido de localização. Não poderemos sugerir a loja mais próxima.";
+                           errorMessage = "You denied the request for Geolocation. We will not be able to suggest the nearest store.";
                            break;
                        case error.POSITION_UNAVAILABLE:
-                           errorMessage = "Informação de localização indisponível no momento.";
+                           errorMessage = "Location information is currently unavailable.";
                            break;
                        case error.TIMEOUT:
-                           errorMessage = "O tempo da requisição expirou.";
+                           errorMessage = "The request to get your location timed out.";
                            break;
                        default:
-                           errorMessage = "Ocorreu um erro desconhecido ao buscar sua localização.";
+                           errorMessage = "An unknown error occurred while fetching your location.";
                            break;
                    }
                    locationResult.innerHTML = `<p style="color: #c0392b;">❌ ${errorMessage}</p>`;
                }
            );
        } else {
-           locationResult.innerHTML = "<p>Geolocalização não é suportada pelo seu navegador.</p>";
+           locationResult.innerHTML = "<p>Geolocation is not supported by your browser.</p>";
        }
    });
 }
 
 /**
  * ---------------------------------------------------------
- * LÓGICA DO WEB STORAGE E MODAL DO CARRINHO
+ * WEB STORAGE AND CART MODAL LOGIC
  * ---------------------------------------------------------
  */
-
 
 function addToCart(name, price) {
     cart.push({ name: name, price: price });
     localStorage.setItem('tshirt_store_cart', JSON.stringify(cart));
     updateCartUI();
-    alert(`A camiseta "${name}" foi adicionada ao carrinho!`);
+    alert(`The t-shirt "${name}" was added to the cart!`);
 }
-
 
 function loadCart() {
     const savedCart = localStorage.getItem('tshirt_store_cart');
@@ -135,7 +133,6 @@ function loadCart() {
     }
     updateCartUI();
 }
-
 
 function updateCartUI() {
     const cartCountElement = document.getElementById('cartCount');
@@ -154,7 +151,6 @@ function updateCartUI() {
     }
 }
 
-
 function openCartModal() {
     const modal = document.getElementById('cartModal');
     const list = document.getElementById('cartItemsList');
@@ -164,24 +160,23 @@ function openCartModal() {
     let total = 0;
 
     if (cart.length === 0) {
-        list.innerHTML = '<li>O carrinho está vazio.</li>';
+        list.innerHTML = '<li>The cart is empty.</li>';
     } else {
         cart.forEach((item) => {
             total += item.price;
             list.innerHTML += `
                 <li>
                     <span>👕 ${item.name}</span>
-                    <span>€ ${item.price.toFixed(2).replace('.', ',')}</span>
+                    <span>€ ${item.price.toFixed(2)}</span>
                 </li>
             `;
         });
     }
 
-    totalSpan.textContent = `€ ${total.toFixed(2).replace('.', ',')}`;
+    totalSpan.textContent = `€ ${total.toFixed(2)}`;
     
     modal.style.display = 'flex';
 }
-
 
 function closeCartModal() {
     document.getElementById('cartModal').style.display = 'none';
@@ -196,30 +191,30 @@ window.addEventListener('click', (event) => {
 
 /**
  * ---------------------------------------------------------
- * LÓGICA DO CALENDÁRIO DE PROMOÇÕES
+ * PROMOTIONS CALENDAR LOGIC
  * ---------------------------------------------------------
  */
 
 let currentDate = new Date(2026, 3, 1); 
 
 const promoEvents = [
-    { date: '2026-04-27', title: 'Flash Sale: 50% OFF em Básicas' },
-    { date: '2026-04-28', title: 'Últimas horas da Flash Sale' },
-    { date: '2026-05-01', title: 'Feriado: Frete Grátis em todo o site' },
-    { date: '2026-05-03', title: 'Especial Dia das Mães: Kits Presente' },
-    { date: '2026-05-04', title: 'Semana Geek: Novas Estampas' },
-    { date: '2026-05-15', title: 'Promoção Quinzena: Leve 3, Pague 2' },
-    { date: '2026-05-22', title: 'Drop Exclusivo: Coleção Minimalista' },
-    { date: '2026-05-30', title: 'Pré-lançamento: Coleção de Verão' },
-    { date: '2026-06-01', title: 'Especial Kids: Descontos na linha infantil' },
-    { date: '2026-06-02', title: 'Nova Coleção: Cores Vibrantes' },
-    { date: '2026-06-05', title: 'Sustentabilidade: Linha Algodão Orgânico' },
-    { date: '2026-06-12', title: 'Especial Namorados: Desconto em Pares' },
-    { date: '2026-06-20', title: 'Início do Verão: Festival de Regatas' },
-    { date: '2026-06-24', title: 'Queima de Estoque Relâmpago' },
-    { date: '2026-07-01', title: 'Início da Liquidação de Inverno (Até 70% OFF)' },
-    { date: '2026-07-07', title: 'Semana do Cliente: Cupons Exclusivos' },
-    { date: '2026-07-15', title: 'Lançamento: Nova Linha Premium' }
+    { date: '2026-04-27', title: 'Flash Sale: 50% OFF on Basics' },
+    { date: '2026-04-28', title: 'Last hours of the Flash Sale' },
+    { date: '2026-05-01', title: 'Holiday: Free Shipping sitewide' },
+    { date: '2026-05-03', title: 'Mother\'s Day Special: Gift Kits' },
+    { date: '2026-05-04', title: 'Geek Week: New Prints' },
+    { date: '2026-05-15', title: 'Fortnight Promo: Buy 3, Pay for 2' },
+    { date: '2026-05-22', title: 'Exclusive Drop: Minimalist Collection' },
+    { date: '2026-05-30', title: 'Pre-launch: Summer Collection' },
+    { date: '2026-06-01', title: 'Kids Special: Discounts on children\'s line' },
+    { date: '2026-06-02', title: 'New Collection: Vibrant Colors' },
+    { date: '2026-06-05', title: 'Sustainability: Organic Cotton Line' },
+    { date: '2026-06-12', title: 'Valentine\'s Special: Discount on Pairs' },
+    { date: '2026-06-20', title: 'Start of Summer: Tank Top Festival' },
+    { date: '2026-06-24', title: 'Flash Clearance Sale' },
+    { date: '2026-07-01', title: 'Start of Winter Sale (Up to 70% OFF)' },
+    { date: '2026-07-07', title: 'Customer Week: Exclusive Coupons' },
+    { date: '2026-07-15', title: 'Launch: New Premium Line' }
 ];
 
 function initCalendar() {
@@ -233,8 +228,8 @@ function renderCalendar(date) {
     const year = date.getFullYear();
     const month = date.getMonth();
     
-    const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-    const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     const firstDayIndex = new Date(year, month, 1).getDay();
     const lastDayDate = new Date(year, month + 1, 0).getDate();
@@ -242,9 +237,9 @@ function renderCalendar(date) {
     let html = `
         <div class="calendar-container">
             <div class="calendar-header">
-                <button onclick="changeMonth(-1)">&#9664; Anterior</button>
+                <button onclick="changeMonth(-1)">&#9664; Previous</button>
                 <h3>${monthNames[month]} ${year}</h3>
-                <button onclick="changeMonth(1)">Próximo &#9654;</button>
+                <button onclick="changeMonth(1)">Next &#9654;</button>
             </div>
             <div class="calendar-grid">
     `;

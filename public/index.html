@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,104 +10,104 @@
 <body class="page">
 
     <header class="header">
-        <div class="header__logo-container">
-            <canvas id="logoCanvas" width="80" height="80" aria-label="Logo da T-Shirt Store: Um cabide minimalista"></canvas>
+        <figure class="header__logo-container">
+            <canvas id="logoCanvas" width="80" height="80" aria-label="T-Shirt Store Logo: A minimalist hanger"></canvas>
             <h1 class="header__title">T-Shirt Store</h1>
-        </div>
+        </figure>
 
-        <div class="header__search">
-            <input type="search" id="searchInput" class="search__input" placeholder="Buscar camisetas...">
-            <button class="search__button">Buscar</button>
-        </div>
+        <search class="header__search">
+            <input type="search" id="searchInput" class="search__input" placeholder="Search t-shirts...">
+            <button class="search__button">Search</button>
+        </search>
 
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <div class="header__cart" id="cartBtn" style="cursor: pointer;">
+        <section style="display: flex; align-items: center; gap: 15px;">
+            <button class="header__cart" id="cartBtn" style="cursor: pointer; background: transparent; border: none; font-size: inherit; color: inherit; padding: 0;">
                 <span class="cart__icon">🛒</span>
-                <span class="cart__count" id="cartCount">0</span> itens
-            </div>
+                <span class="cart__count" id="cartCount">0</span> items
+            </button>
             
             <button id="quickCheckoutBtn" class="product-card__button" style="display: none; margin-top: 0; padding: 0.5rem 1rem; background-color: #27ae60;">
-                Finalizar
+                Checkout
             </button>
-        </div>
+        </section>
     </header>
 
     <nav class="nav">
         <ul class="nav__list">
-            <li class="nav__item"><a href="#catalog" class="nav__link">Catálogo</a></li>
-            <li class="nav__item"><a href="#events" class="nav__link">Eventos</a></li>
-            <li class="nav__item"><a href="#pickup" class="nav__link">Pontos de Retirada</a></li>
+            <li class="nav__item"><a href="#catalog" class="nav__link">Catalog</a></li>
+            <li class="nav__item"><a href="#events" class="nav__link">Events</a></li>
+            <li class="nav__item"><a href="#pickup" class="nav__link">Pickup Points</a></li>
         </ul>
     </nav>
 
     <main class="main-content">
         
         <section id="catalog" class="section catalog">
-            <h2 class="section__title">Nossas Camisetas</h2>
-            <div class="catalog__grid">
+            <h2 class="section__title">Our T-Shirts</h2>
+            <section class="catalog__grid">
                 <article class="product-card">
-                    <img src="assets/camisa_preta.jpg" alt="Camiseta Básica Preta" class="product-card__img">
-                    <h3 class="product-card__title">Básica Preta</h3>
-                    <p class="product-card__price">€ 15,90</p>
-                    <button class="product-card__button" onclick="addToCart('Básica Preta', 19.90)">Adicionar ao Carrinho</button>
+                    <img src="assets/camisa_preta.jpg" alt="Basic Black T-Shirt" class="product-card__img">
+                    <h3 class="product-card__title">Basic Black</h3>
+                    <p class="product-card__price">€ 15.90</p>
+                    <button class="product-card__button" onclick="addToCart('Basic Black', 15.90)">Add to Cart</button>
                 </article>
 
                 <article class="product-card">
-                    <img src="assets/camisa_azul.jpg" alt="Camiseta Básica Azul" class="product-card__img">
-                    <h3 class="product-card__title">Básica Azul</h3>
-                    <p class="product-card__price">€ 19,90</p>
-                    <button class="product-card__button" onclick="addToCart('Básica Azul', 19.90)">Adicionar ao Carrinho</button>
+                    <img src="assets/camisa_azul.jpg" alt="Basic Blue T-Shirt" class="product-card__img">
+                    <h3 class="product-card__title">Basic Blue</h3>
+                    <p class="product-card__price">€ 19.90</p>
+                    <button class="product-card__button" onclick="addToCart('Basic Blue', 19.90)">Add to Cart</button>
                 </article>
 
                 <article class="product-card">
-                    <img src="assets/camisa_rosa.jpg" alt="Camiseta Básica Rosa" class="product-card__img">
-                    <h3 class="product-card__title">Básica Rosa</h3>
-                    <p class="product-card__price">€ 12,90</p>
-                    <button class="product-card__button" onclick="addToCart('Básica Rosa', 19.90)">Adicionar ao Carrinho</button>
+                    <img src="assets/camisa_rosa.jpg" alt="Basic Pink T-Shirt" class="product-card__img">
+                    <h3 class="product-card__title">Basic Pink</h3>
+                    <p class="product-card__price">€ 12.90</p>
+                    <button class="product-card__button" onclick="addToCart('Basic Pink', 12.90)">Add to Cart</button>
                 </article>
 
                 <article class="product-card">
-                    <img src="assets/camisa_cinza.jpg" alt="Camiseta Básica cinza" class="product-card__img">
-                    <h3 class="product-card__title">Básica cinza</h3>
-                    <p class="product-card__price">€ 29,90</p>
-                    <button class="product-card__button" onclick="addToCart('Básica cinza', 19.90)">Adicionar ao Carrinho</button>
+                    <img src="assets/camisa_cinza.jpg" alt="Basic Gray T-Shirt" class="product-card__img">
+                    <h3 class="product-card__title">Basic Gray</h3>
+                    <p class="product-card__price">€ 29.90</p>
+                    <button class="product-card__button" onclick="addToCart('Basic Gray', 29.90)">Add to Cart</button>
                 </article>
-            </div>
+            </section>
         </section>
 
         <section id="events" class="section events">
-            <h2 class="section__title">Calendário de Promoções</h2>
-            <div class="calendar" id="promoCalendar">
-                <p>O calendário será renderizado aqui.</p>
-            </div>
+            <h2 class="section__title">Promotions Calendar</h2>
+            <article class="calendar" id="promoCalendar">
+                <p>The calendar will be rendered here.</p>
+            </article>
         </section>
 
         <section id="pickup" class="section location">
-            <h2 class="section__title">Encontre a loja mais próxima</h2>
-            <p class="location__desc">Permita o acesso à sua localização para vermos o ponto de retirada ideal para você.</p>
-            <button id="btnLocation" class="location__button">Usar minha localização</button>
-            <div id="locationResult" class="location__result"></div>
+            <h2 class="section__title">Find the nearest store</h2>
+            <p class="location__desc">Allow location access so we can find the ideal pickup point for you.</p>
+            <button id="btnLocation" class="location__button">Use my location</button>
+            <output id="locationResult" class="location__result"></output>
         </section>
 
-        <div id="cartModal" class="cart-modal" style="display: none;">
-            <div class="cart-modal__content">
-                <span class="cart-modal__close" id="closeCartBtn">&times;</span>
-                <h2>Seu Carrinho</h2>
+        <dialog id="cartModal" class="cart-modal" style="display: none;">
+            <article class="cart-modal__content">
+                <button class="cart-modal__close" id="closeCartBtn" aria-label="Close cart" style="background: none; border: none; font-size: inherit; cursor: pointer;">&times;</button>
+                <h2>Your Cart</h2>
                 <ul id="cartItemsList"></ul>
-                <div class="cart-modal__footer">
-                    <p><strong>Total: <span id="cartTotal">€ 0,00</span></strong></p>
-                    <button class="cart-modal__checkout">Finalizar Compra</button>
-                </div>
-            </div>
-        </div>
+                <footer class="cart-modal__footer">
+                    <p><strong>Total: <span id="cartTotal">€ 0.00</span></strong></p>
+                    <button class="cart-modal__checkout">Checkout</button>
+                </footer>
+            </article>
+        </dialog>
     </main>
 
     <footer class="footer">
-        <div class="footer__info">
+        <section class="footer__info">
             <p>&copy; 2026 T-Shirt Store.</p>
-            <p>Projeto de Programação Web - UCAM (2025/2026)</p>
-            <p>Desenvolvido por: Marco & Otto</p>
-        </div>
+            <p>Web Programming Project - UCAM (2025/2026)</p>
+            <p>Developed by: Marco & Otto</p>
+        </section>
     </footer>
 
     <script src="js/app.js"></script>
