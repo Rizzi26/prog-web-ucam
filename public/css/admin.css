@@ -1,0 +1,117 @@
+/* admin.css — shared styles for admin panel, data tables, account and pickup. */
+
+/* Pickup / geolocation section (storefront). */
+.location__desc {
+    margin-bottom: 1rem;
+}
+
+.location__button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.location__button:hover {
+    background-color: var(--accent-color);
+}
+
+.location__result {
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Data tables (account, admin). */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #ddd;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.9rem;
+}
+
+.data-table th {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.data-table tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+/* Admin dashboard stats. */
+.admin-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.admin-stat {
+    background: var(--bg-light);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    min-width: 160px;
+}
+
+.admin-stat__value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.admin-stat__label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.admin-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Admin forms. */
+.admin-form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.admin-form input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.admin-message {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.variant-row {
+    margin-bottom: 4px;
+}
